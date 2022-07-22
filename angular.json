@@ -26,7 +26,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/chart.js/dist/chart.js"     
+            ]
           },
           "configurations": {
             "production": {
@@ -56,6 +58,14 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "development": { 
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
           }
         },
@@ -67,8 +77,12 @@
           "configurations": {
             "production": {
               "browserTarget": "grafica:build:production"
+            },
+            "development": { 
+              "browserTarget": "grafica:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -90,7 +104,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/chart.js/dist/chart.js"
+            ]
           }
         },
         "lint": {
@@ -119,6 +135,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "grafica"
+    }
+  },
+  "defaultProject": "grafica",
+  "cli": {
+    "analytics": false
+  }
 }
